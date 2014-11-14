@@ -7,8 +7,10 @@ Code for my website (hosted at tynan.me) including a Javascript and HTML5 Canvas
 
 ## Todo List
 * Fix fonts so they work in other browsers (eg, firefox)
-* Fix touch and mouse events so they are more accurate when mapped onto grid of cells
+* ~~Fix touch and mouse events so they are more accurate when mapped onto grid of cells~~
+* ~~Fix resize for computers so arrays resize~~
 * Add/fix resize and for mobiles too
+* Fix wrap around of grid
 
 
 

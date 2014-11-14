@@ -118,8 +118,18 @@ function randinit(){
 function resizer(){
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
+    oldgw = gw;
+    oldgh = gh;
 	gw = ~~(canvas.width/10);
 	gh = ~~(canvas.height/10);
+	for(var x=oldgw; x<gw; ++x){
+		grid[x]=[];
+		ngrid[x]=[];
+		for(var y=oldgh; y<gh; ++y){
+			grid[x][y]=0;
+			ngrid[x][y]=0;
+		} 	
+	}
 	c.fillStyle = "#35C0CD";
 	c.globalAlpha = trans;
 }
