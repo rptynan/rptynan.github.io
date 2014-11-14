@@ -1,5 +1,14 @@
-var canvas, c, grid=[], ngrid=[], gh, gw, t, intcnt=0, //Necessary Variables
-	cs=15, pd=3, trans=0.4, seedratio=.3, interval=25, maxintcnt=4;	//Aestethic Variables, cs=cellsize, pd=padding, interval=time in ms between screen refreshes, mxintcnt=every nth screen refresh calls nxtgen();
+var
+// Necessary Variables
+canvas, c, grid=[], ngrid=[], gh, gw, t, intcnt=0,
+//Aestethic Variables
+cs=15,          // cell size
+pd=3,           // padding between cells
+trans=0.4,      // trasparency of cells on page
+seedratio=.3,   // ratio alive:empty when randomly generating start
+interval=25,    // interval time in ms between each refresh
+maxintcnt=4;	// every nth screen refresh calls nxtgen()
+
 
 window.onload = function(){
 	canvas = document.getElementById("GOLCanvas");
@@ -23,10 +32,13 @@ window.onload = function(){
 	window.addEventListener('resize', function() { resizer(); update(); }, false);
 	window.onfocus=setInterval('update()',interval);
 }
+
+
 window.addEventListener('mousemove', function(ev){mouselive(ev);}, false)
 window.addEventListener('touchmove', function(ev){touchlive(ev);}, false)
-//window.onmousemove = mouselive;
 
+
+// Updates screen to show grid
 function update(){
 	++intcnt;
 	if(intcnt==maxintcnt){
@@ -42,6 +54,8 @@ function update(){
 	}
 }
 
+
+// Changes grid to next generation
 function nxtgen(){
 	for(var x=0; x<gw; ++x){
 		for(var y=0; y<gh; ++y){
@@ -59,6 +73,8 @@ function nxtgen(){
 	}
 }
 
+
+// Helper function to make a cell alive in grid array given screen co-ordinates
 function fillcell(x, y){
 	var mx = ~~( (x-pd) / ( (cs+pd)*(document.documentElement.clientWidth/screen.width) ) );
 	var my = ~~( (y-pd) / ( (cs+pd)*(document.documentElement.clientHeight/screen.height) ) );
@@ -68,11 +84,15 @@ function fillcell(x, y){
 	grid[mx][my]=1;
 }
 
+
+// Function to catch mouse moving events
 function mouselive(ev){
     fillcell(ev.pageX, ev.pageY);
     return;
 }
 
+
+// Function to catch touch moving events
 function touchlive(ev){
     var I = ev.touches.length;
     for(var i=0; i<I; ++i){
@@ -81,6 +101,8 @@ function touchlive(ev){
     return;
 }
 
+
+// Randomly generate new grid to start
 function randinit(){
 	for(var x=0; x<gw; ++x){
 		for(var y=0; y<gh; ++y){
@@ -89,6 +111,8 @@ function randinit(){
 	}
 }
 
+
+// Resize everything
 function resizer(){
 	canvas.width = window.outerWidth;
 	canvas.height = window.outerHeight;
