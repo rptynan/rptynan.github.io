@@ -10,13 +10,14 @@ interval=25,    // interval time in ms between each refresh
 maxintcnt=4;	// every nth screen refresh calls nxtgen()
 
 
+// On loading page, startup these things
 window.onload = function(){
 	canvas = document.getElementById("GOLCanvas");
 	c = canvas.getContext("2d");
 	c.fillStyle = "#35C0CD";
 	c.globalAlpha = trans;
-	gh=~~(screen.height/10);
-	gw=~~(screen.width/10);
+	gh=~~(window.innerHeight/10);
+	gw=~~(window.innerWidth/10);
 	for(var x=0; x<gw; ++x){
 		grid[x]=[];
 		ngrid[x]=[];
@@ -34,6 +35,7 @@ window.onload = function(){
 }
 
 
+// Add event listeners to catch touch/mouse movements
 window.addEventListener('mousemove', function(ev){mouselive(ev);}, false)
 window.addEventListener('touchmove', function(ev){touchlive(ev);}, false)
 
@@ -45,7 +47,7 @@ function update(){
 		intcnt=0;
 		nxtgen();
 	}
-	c.clearRect(0,0,screen.width,screen.height);
+	c.clearRect(0,0,window.innerWidth,window.innerHeight);
 	for(var i=0; i<gw; ++i){
 		for(var o=0; o<gh; ++o){
 			if(grid[i][o]==1)
@@ -76,8 +78,8 @@ function nxtgen(){
 
 // Helper function to make a cell alive in grid array given screen co-ordinates
 function fillcell(x, y){
-	var mx = ~~( (x-pd) / ( (cs+pd)*(document.documentElement.clientWidth/screen.width) ) );
-	var my = ~~( (y-pd) / ( (cs+pd)*(document.documentElement.clientHeight/screen.height) ) );
+	var mx = ~~( (x-pd) / (cs+pd) );
+	var my = ~~( (y-pd) / (cs+pd) );
 	if(mx<0 || my<0){
 		return;
 	}
@@ -114,8 +116,8 @@ function randinit(){
 
 // Resize everything
 function resizer(){
-	canvas.width = window.outerWidth;
-	canvas.height = window.outerHeight;
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
 	gw = ~~(canvas.width/10);
 	gh = ~~(canvas.height/10);
 	c.fillStyle = "#35C0CD";
