@@ -1,0 +1,6 @@
+# Ignore the images
+images/*.png
+images/*.jpg
+
+# Except for this one
+!images/icon.png
