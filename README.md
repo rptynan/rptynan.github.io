@@ -1,9 +1,14 @@
-tynan.me
-========
+# tynan.me
 
 Code for my website (hosted at tynan.me) including a Javascript and HTML5 Canvas based Conway's Game of Life background.
 
 ![alt-text][SS]
+
+
+## Todo List
+* Fix fonts so they work in other browsers (eg, firefox)
+* Fix touch and mouse events so they are more accurate when mapped onto grid of cells
+* Add/fix resize and for mobiles too
 
 
 

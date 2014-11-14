@@ -24,6 +24,7 @@ window.onload = function(){
 	window.onfocus=setInterval('update()',interval);
 }
 window.addEventListener('mousemove', function(ev){mouselive(ev);}, false)
+window.addEventListener('touchmove', function(ev){touchlive(ev);}, false)
 //window.onmousemove = mouselive;
 
 function update(){
@@ -58,16 +59,26 @@ function nxtgen(){
 	}
 }
 
-function mouselive(ev){
-	var mx = ~~( (ev.pageX-pd) / ( (cs+pd)*(document.documentElement.clientWidth/screen.width) ) );
-	var my = ~~( (ev.pageY-pd) / ( (cs+pd)*(document.documentElement.clientHeight/screen.height) ) );
+function fillcell(x, y){
+	var mx = ~~( (x-pd) / ( (cs+pd)*(document.documentElement.clientWidth/screen.width) ) );
+	var my = ~~( (y-pd) / ( (cs+pd)*(document.documentElement.clientHeight/screen.height) ) );
 	if(mx<0 || my<0){
 		return;
 	}
-	//console.log(document.documentElement.clientWidth);
-	//alert(mx,my);
-	//console.log(ev.pageX);
 	grid[mx][my]=1;
+}
+
+function mouselive(ev){
+    fillcell(ev.pageX, ev.pageY);
+    return;
+}
+
+function touchlive(ev){
+    var I = ev.touches.length;
+    for(var i=0; i<I; ++i){
+        fillcell(ev.touches[i].pageX, ev.touches[i].pageY);
+    }
+    return;
 }
 
 function randinit(){
