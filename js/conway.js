@@ -1,3 +1,11 @@
+/*
+ * Javascript implementation of Conway's Game of Life, intended to fill
+ * the entire background of a page.
+ * Licensed under MIT license, find the code at github.com/rptynan/tynan.me
+ * Richard Tynan
+ */
+
+
 var
 // Necessary Variables
 canvas, c, grid=[], ngrid=[], gh, gw, t, intcnt=0,
@@ -5,9 +13,10 @@ canvas, c, grid=[], ngrid=[], gh, gw, t, intcnt=0,
 cs=15,          // cell size
 pd=3,           // padding between cells
 trans=0.4,      // trasparency of cells on page
-seedratio=.3,   // ratio alive:empty when randomly generating start
 interval=25,    // interval time in ms between each refresh
 maxintcnt=4;	// every nth screen refresh calls nxtgen()
+seedratio=.3,   // ratio alive:empty when randomly generating start
+randominit=0;   // randomly initiate grid (otherwise just a glider)
 
 
 // On loading page, startup these things
@@ -24,9 +33,9 @@ window.onload = function(){
 		for(var y=0; y<gh; ++y){
 			grid[x][y]=0;
 			ngrid[x][y]=0;
-		} 	
+		}
 	}
-	//randinit();
+	if(randominit) randinit(); //Turned off for now
 	for(var i=0; i<3; ++i) nxtgen();
 	resizer();
 	grid[1][1]=1;	grid[2][2]=1; grid[2][3]=1; grid[1][3]=1; grid[0][3]=1;	
