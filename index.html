@@ -1,45 +1,71 @@
+---
+title: Blog Title
+---
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-	<head>
-		<title>Richard Tynan</title>
-		<link href="css/main.css" rel="stylesheet">
-        <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-		<link rel="shortcut icon" href="images/icon.png" type="image/png">
-	</head>
+    <head>
 
+        <title>Richard Tynan</title>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-	<body>
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
 
-		<canvas id="GOLCanvas" style="border:1px solid #c3c3c3;">
-		Oh, no HTML5? Angry Cat =~.~=
-		</canvas>
+        <link href="css/normalize.css" rel="stylesheet">
+        <link href="css/skeleton.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
 
-		<!--<img src="images/headshot.jpg" id="headshot" width="150">-->
+        <link rel="shortcut icon" href="images/icon.png" type="image/png">
 
-		<div id="main">
-
-			<div id="header">
-                Richard <p></p> Tynan
-			</div>
-
-			<div id="sidebar">
-				<p><a href="http://blog.tynan.me">Blog</a></p>
-				<p><a href="mailto:richard@tynan.me">Email</a></p>
-				<p><a href="http://github.com/rptynan">Github</a></p>
-				<p><a href="http://www.twitter.com/rptynan">Twitter</a></p>
-				<p><a href="http://ie.linkedin.com/pub/richard-tynan/55/698/a85">LinkedIn</a></p<>
-				<p><a href="http://codeforces.com/profile/rptynan">CodeForces</a></p>
-			</div>
-
-			<div id="bio">
-			</div>
+    </head>
 
 
-		</div>
+    <body>
 
-		<script language="Javascript" type="text/javascript" src="js/conway.js"></script>
+        <!-- <canvas id="GOLCanvas" style="border:1px solid #c3c3c3;"> -->
+        <!-- Oh, no HTML5? Angry Cat =~.~= -->
+        <!-- </canvas> -->
 
-	</body>
+
+        <div id="main">
+
+            <div class="sidebar">
+
+                <div class="sidebar-header">
+                    Header
+                </div>
+
+                <div class="bio">
+                    Something Something
+                </div>
+
+                <ul class="sidebar-links">
+                    <li>Hi</li>
+                    <li><a href="http://blog.tynan.me">Blog</a></li>
+                    <li><a href="mailto:richard@tynan.me">Email</a></li>
+                    <li><a href="http://github.com/rptynan">Github</a></li>
+                    <li><a href="http://www.twitter.com/rptynan">Twitter</a></li>
+                    <li><a href="http://ie.linkedin.com/pub/richard-tynan/55/698/a85">LinkedIn</a></li<>
+                    <li><a href="http://codeforces.com/profile/rptynan">CodeForces</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="posts">
+            {% for post in site.posts %}
+            <div class="post">
+                <h1>{{ post.title }}</h1>
+                {{ post.content }}
+            </div>
+            {% endfor %}
+        </div>
+
+        <script language="Javascript" type="text/javascript" src="js/conway.js"></script>
+
+    </body>
 
 </html>
