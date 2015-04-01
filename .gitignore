@@ -1,3 +1,6 @@
+# Jekyll ouput
+_site/*
+
 # Ignore the images
 images/*.png
 images/*.jpg

@@ -13,11 +13,11 @@ title: Blog Title
 
         <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
 
-        <link href="css/normalize.css" rel="stylesheet">
-        <link href="css/skeleton.css" rel="stylesheet">
-        <link href="css/main.css" rel="stylesheet">
+        <link href="/css/normalize.css" rel="stylesheet">
+        <link href="/css/skeleton.css" rel="stylesheet">
+        <link href="/css/main.css" rel="stylesheet">
 
-        <link rel="shortcut icon" href="images/icon.png" type="image/png">
+        <link rel="shortcut icon" href="/images/icon.png" type="image/png">
 
     </head>
 
@@ -27,6 +27,8 @@ title: Blog Title
         <!-- <canvas id="GOLCanvas" style="border:1px solid #c3c3c3;"> -->
         <!-- Oh, no HTML5? Angry Cat =~.~= -->
         <!-- </canvas> -->
+        <img src="/images/taipei_bg.jpg" class="background">
+
 
 
         <div id="main">
@@ -58,13 +60,15 @@ title: Blog Title
         <div class="posts">
             {% for post in site.posts %}
             <div class="post">
-                <h1>{{ post.title }}</h1>
-                {{ post.content }}
+                <h1 class="post-title">
+                    <a href="{{ post.url }}"> {{ post.title }} </a>
+                </h1>
+                {{ post.excerpt }}
             </div>
             {% endfor %}
         </div>
 
-        <script language="Javascript" type="text/javascript" src="js/conway.js"></script>
+        <!-- <script language="Javascript" type="text/javascript" src="js/conway.js"></script> -->
 
     </body>
 
