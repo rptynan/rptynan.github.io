@@ -15,15 +15,6 @@ a:link {text-decoration: none;}
 /* a:active {text-decoration: none;} */
 /* a:hover {text-decoration: none; opacity: 0.9; color: #FF7F00; } */
 
-#GOLCanvas {
-    background-color: #E6E6E6;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.6;
-}
-
 
 /*
  * Sidebar
@@ -37,7 +28,8 @@ a:link {text-decoration: none;}
     opacity: 0.9;
 }
 
-@media (min-width: 48em) {
+/* desktopish */
+@media screen and (min-aspect-ratio: 1/1) {
     .sidebar {
         position: fixed;
         width: 18rem;
@@ -72,10 +64,11 @@ a:link {text-decoration: none;}
 
 .posts {
     /* background-color: yellow; */
-    margin-top: 4rem;
+    margin: 4rem 2rem;
 }
 
-@media (min-width: 48em) {
+/* desktopish */
+@media screen and (min-aspect-ratio: 1/1) {
     .posts {
         width: 40rem;
         margin-top: 6rem;
@@ -104,6 +97,26 @@ a:link {text-decoration: none;}
     position: fixed;
     z-index: -1;
     top: 0;
-    width: 100%;
-    height: 100%;
 }
+
+/* By this logic all background images should be in 16:9 aspect */
+/* desktopish */
+@media screen and (min-aspect-ratio: 16/9) {
+    .background {
+        width: 100%;
+        min-height: 100%;
+    }
+}
+/* moblieish */
+@media not screen and (min-aspect-ratio: 16/9) {
+    .background {
+        height: 100%;
+        min-width: 100%;
+    }
+}
+
+#GOLCanvas {
+    background-color: #E6E6E6;
+    opacity: 0.6;
+}
+
