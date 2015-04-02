@@ -8,7 +8,7 @@
 
 var
 // Necessary Variables
-canvas, c, grid=[], ngrid=[], gh, gw, t, intcnt=0,
+canvas, c, grid=[], ngrid=[], gh=0, gw=0, t, intcnt=0,
 //Aestethic Variables
 cs=15,          // cell size
 pd=3,           // padding between cells
@@ -89,10 +89,11 @@ function nxtgen(){
 function fillcell(x, y){
 	var mx = ~~( (x-pd) / (cs+pd) );
 	var my = ~~( (y-pd) / (cs+pd) );
-	if(mx<0 || my<0){
-		return;
-	}
-	grid[mx][my]=1;
+	if(mx>=0 && my>=0 && mx<gw && my<gh){
+        grid[mx][my]=1;
+    }
+    return;
+    console.log(mx, gw, my, gh);
 }
 
 
