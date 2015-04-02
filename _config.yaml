@@ -2,8 +2,10 @@ title: 'Richard Tynan'
 tagline: 'Late Night Blag'
 description: 'A blog of my life, which is currently being spent as a CompSci student at Cambridge University, England. Expect code, travel, rants, memories and generally whatever else that I decide to put up.'
 
-url: 'http://tynan.me'
-baseurl: '/'
-permalink: '/:year/:title'
+url: http://tynan.me
+baseurl: /
+permalink: /:year/:title
+markdown: redcarpet
+highlighter: pygments
 paginate: 5
-timezone: 'Europe/Dublin'
+timezone: Europe/Dublin
