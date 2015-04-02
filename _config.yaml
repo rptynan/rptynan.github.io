@@ -1,1 +1,9 @@
-timezone: Europe/Dublin
+title: 'Richard Tynan'
+tagline: 'Late Night Blag'
+description: 'A blog of my life, which is currently being spent as a CompSci student at Cambridge University, England. Expect code, travel, rants, memories and generally whatever else that I decide to put up.'
+
+url: 'http://tynan.me'
+baseurl: '/'
+permalink: '/:year/:title'
+paginate: 5
+timezone: 'Europe/Dublin'
