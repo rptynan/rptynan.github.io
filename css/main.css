@@ -50,6 +50,7 @@ a:link {text-decoration: none;}
 }
 
 .sidebar-links {
+    list-style-type: none;
     font-size: 1.4rem;
 }
 
